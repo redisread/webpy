@@ -1,0 +1,12 @@
+$def with (todos)
+<h1>Leave Your Name!</h1>
+<ul>
+$for todo in todos:
+    <li id="t$todo.id">$todo.name</li>
+</ul>
+
+<form method="post" action="add">
+    <p><input type="text" name="nn" /> <input type="submit" value="Add" /></p>
+</form>
+
+<a href="/temp"><button>测试</button></a>
