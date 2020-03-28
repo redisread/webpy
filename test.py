@@ -6,9 +6,9 @@ db = web.database(dbn='mysql', user='root', pw='123456', db='test',host='90b5140
 # 定义网页的所有地址
 urls = (
     '/','index',
+    '/index','index',
     '/temp','temp',
     '/name/(.*)','Aname',
-    '/base','Mybase',
     '/data','Data',
     '/add','Add'
 )   
@@ -26,10 +26,6 @@ class Aname:
     def GET(self,name):
         return render.name(name)
 
-class Mybase:
-    def GET(self):
-        return render.base("3.1415926")
-
 class Data:
     def GET(self):
         d = db.select('app1_test')
@@ -41,8 +37,6 @@ class Add:
         n = db.insert('app1_test',name=i.nn)
         raise web.seeother('/data')
 
-if __name__ == "__main__":  
-    # 新建网页App
-    app = web.application(urls,globals()) # globals() 函数会以字典类型返回当前位置的全部全局变量
-    # 运行程序
-    app.run()
+# 定义局部应用
+app_test = web.application(urls,locals())
+
