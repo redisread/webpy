@@ -2,6 +2,7 @@ import web
 import test
 from todo_app import todo
 from blog_app import blog
+
 # 指定模板目录
 render = web.template.render('templates')
 # 连接数据库
@@ -21,7 +22,7 @@ render = web.template.render("templates")
 # 网页访问的处理类
 class Index:
     def GET(self):
-        return render.button() 
+        return render.button("我是我") 
 
 class Button:
     def GET(self):
