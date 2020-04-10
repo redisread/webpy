@@ -2,6 +2,7 @@ import web
 import test
 from todo_app import todo
 from blog_app import blog
+import os
 
 # 指定模板目录
 render = web.template.render('templates')
@@ -19,10 +20,13 @@ urls = (
 
 render = web.template.render("templates")
 
+img_path = "./static/images/"
+r = [os.path.join(img_path,each) for each in os.listdir(img_path)]
+
 # 网页访问的处理类
 class Index:
     def GET(self):
-        return render.button("我是我") 
+        return render.button("我是我",r) 
 
 class Button:
     def GET(self):

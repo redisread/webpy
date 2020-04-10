@@ -1,9 +1,11 @@
 $def with (posts)
 
 <h1>Blog posts</h1>
-
+<div>
+    <el-avatar src="https://cube.elemecdn.com/0/88/03b0d39583f48206768a7534e55bcpng.png"></el-avatar>
+</div>
 <ul>
-$for post in posts:
+    $for post in posts:
     <li>
         <a href="/view/$post.id">$post.title</a>
         from $datestr(post.posted_on)
